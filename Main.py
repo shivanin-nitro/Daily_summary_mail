@@ -1,3 +1,5 @@
+'''groq api : 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'''
+
 import os
 import pandas as pd
 import smtplib
@@ -30,10 +32,10 @@ Q_COMM_NAME = "Blinkit"
 BASE_PATH = r"C:\Users\User1\Desktop\autmation codes\availability\AVAIL"
 
 #uncoment this for brand's mail data
-BRAND_NAME_MAPPING_PATH = r"C:\Users\User1\Desktop\autmation codes\company_internal_mail.xlsx"
+#BRAND_NAME_MAPPING_PATH = r"C:\Users\User1\Desktop\autmation codes\company_internal_mail.xlsx"
 
 #smample mails data
-#BRAND_NAME_MAPPING_PATH = r"C:\Users\User1\Desktop\autmation codes\test.xlsx"
+BRAND_NAME_MAPPING_PATH = r"C:\Users\User1\Desktop\autmation codes\test.xlsx"
 
 os.makedirs(BASE_PATH, exist_ok=True)
 
@@ -68,23 +70,34 @@ COMPETITORS = {
 }
 
 
+
+# #test purpose
+# BRAND_EMAILS = {
+#     "Zavya": [
+#         "pratik@getnitro.co",
+#         "rahul.j@getnitro.co",
+#         "s@nitrocommerce.ai" ],
+#     "PINQ POLKA": [
+#         "parijat@getnitro.co" ],
+
+#     "Tuco Kids": [
+#         "adil@getnitro.co",
+#         "chinkal@getnitro.co"],
+
+#     "Chaayos": ["adya@getnitro","mrinal@getnitro.co"],
+
+#     "Eume" : ["hitika@getnitro.co"]
+# }
+
+
+#test purpose
 BRAND_EMAILS = {
     "Zavya": [
-        "pratik@getnitro.co",
-        "rahul.j@getnitro.co",
-        "s@nitrocommerce.ai" ],
+        "shivaninagar918@gmail.com",
+        "nshivani380@gmail.com"],
     "PINQ POLKA": [
-        "parijat@getnitro.co" ],
-
-    "Tuco Kids": [
-        "adil@getnitro.co",
-        "chinkal@getnitro.co"],
-
-    "Chaayos": ["adya@getnitro","mrinal@getnitro.co"],
-
-    "Eume" : ["hitika@getnitro.co"]
+        "hivaninagar918@gmail.com" ]
 }
-
 
 # BRAND_EMAILS = {
 #     "ZAVYA": ["zavya.priyanshu@gmail.com","yash@zavya.co"],
