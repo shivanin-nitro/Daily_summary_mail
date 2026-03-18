@@ -4,3 +4,4 @@ sqlalchemy
 streamlit
 python-dotenv
 ipykernel
+groq
