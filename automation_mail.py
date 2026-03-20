@@ -69,31 +69,31 @@ COMPETITORS = {
 }
 
 #13
-# BRAND_EMAILS = {
-#     "Zavya": ["zavya.priyanshu@gmail.com","yash@zavya.co"],
-#     "PINQ POLKA": ["sushila@pinq.co"],
-#     "Tuco Kids": ["samarth@tucokids.com","anshuman@tucokids.com"],
-#     "Eume": ["customercare@eumeworld.com","pranay@eumeworld.com","qcomm@eumeworld.com"],
-#     "Imagimake": ["srinath@imagimake.com","Aditya@imagimake.com","sukhpreet@imagimake.com"],
-#     "Nuvie": ["sales@nugainwellness.in"],
-#     "Chaayos": ["nishant.s@chaayos.com","agarwal@chaayos.com","rakshit@chaayos.com"],
-#     "Bambino": ["headmt@bambinoagro.com"],
-#     "Jimmy''s": ["Abhinav.mahajan@radioheadbrands.com"],
-#     "Winston" : ["hemant@winstonindia.com"],
-#     "Ecoright" : ["hardeep@ecoright.com","rahul.upadhyay@ecoright.com","ecominternal@ecorightbags.com","karan@ecoright.com"],
-#     "Tea Culture of the World": ["akshay.joshi@teacultureoftheworld.com"],
-#     "Soulflower": ["ishani@soulflower.in","ritik@soulflower.in"]
-#     }
-
-#5
 BRAND_EMAILS = {
-    "The Theater Project" :["akash@thetheatreproject.co.in"],
-    "Outlaw": ["suman@outlawsfashion.com"],
-    "Kilobeaters" : ["kishan@kilobeaters.com"],
-    "Oyo Baby": ["online12@bnmretail.com"],
-    "Nish Hair" : ["channelmanager@nishhair.com","marketing@nishhair.com"],
-    "Freecultr" : ["komal.aggarwal@freecultr.com","sourabh.yadav@freecultr.com"],
+    "Zavya": ["zavya.priyanshu@gmail.com","yash@zavya.co"],
+    "PINQ POLKA": ["sushila@pinq.co"],
+    "Tuco Kids": ["samarth@tucokids.com","anshuman@tucokids.com"],
+    "Eume": ["customercare@eumeworld.com","pranay@eumeworld.com","qcomm@eumeworld.com"],
+    "Imagimake": ["srinath@imagimake.com","Aditya@imagimake.com","sukhpreet@imagimake.com"],
+    "Nuvie": ["sales@nugainwellness.in"],
+    "Chaayos": ["nishant.s@chaayos.com","agarwal@chaayos.com","rakshit@chaayos.com"],
+    "Bambino": ["headmt@bambinoagro.com"],
+    "Jimmy''s": ["Abhinav.mahajan@radioheadbrands.com"],
+    "Winston" : ["hemant@winstonindia.com"],
+    "Ecoright" : ["hardeep@ecoright.com","rahul.upadhyay@ecoright.com","ecominternal@ecorightbags.com","karan@ecoright.com"],
+    "Tea Culture of the World": ["akshay.joshi@teacultureoftheworld.com"],
+    "Soulflower": ["ishani@soulflower.in","ritik@soulflower.in"]
     }
+
+# #5
+# BRAND_EMAILS = {
+#     "The Theater Project" :["akash@thetheatreproject.co.in"],
+#     "Outlaw": ["suman@outlawsfashion.com"],
+#     "Kilobeaters" : ["kishan@kilobeaters.com"],
+#     "Oyo Baby": ["online12@bnmretail.com"],
+#     "Nish Hair" : ["channelmanager@nishhair.com","marketing@nishhair.com"],
+#     "Freecultr" : ["komal.aggarwal@freecultr.com","sourabh.yadav@freecultr.com"],
+#     }
 
 
 #all brand mail 19
@@ -123,13 +123,13 @@ BRAND_EMAILS = {
 TARGET_METROS = ["Pune", "Delhi", "Mumbai", "UP-NCR", "UP-HR", "Hyderabad", "Bengaluru"]
 
 
-ALL_BRANDS = [ "The Theater Project", "Outlaw","Kilobeaters",
-    "Oyo Baby","Nish Hair", "Freecultr" ]
+# ALL_BRANDS = [ "The Theater Project", "Outlaw","Kilobeaters",
+#     "Oyo Baby","Nish Hair", "Freecultr" ]
 
-# ALL_BRANDS = ["Zavya",  "PINQ POLKA", "Tuco Kids", "Eume", "Imagimake", 
-#                "Nuvie", "Bambino", "Jimmy''s", "Soulflower", 
-#                "Chaayos","Winston","Ecoright",
-#               "Tea Culture of the World"]
+ALL_BRANDS = ["Zavya",  "PINQ POLKA", "Tuco Kids", "Eume", "Imagimake", 
+               "Nuvie", "Bambino", "Jimmy''s", "Soulflower", 
+               "Chaayos","Winston","Ecoright",
+              "Tea Culture of the World"]
 
 DEFAULT_RECIPIENT = ["shilpa.bhat@getnitro.co.in"]
 
