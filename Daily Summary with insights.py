@@ -762,19 +762,21 @@ from helper import execute_copy_query_via_bastion
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
-
-GROQ_API_KEY   = "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"
+from dotenv import load_dotenv
+import os
+load_dotenv()
+GROQ_API_KEY   = os.getenv("GROQ_API_KEY")
 groq_client    = Groq(api_key=GROQ_API_KEY)
 
-SENDER_EMAIL   = "shivani.n@getnitro.co"
-SENDER_PASSWORD= "rkgc lqvr dvpp wnfa"
+SENDER_EMAIL   = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD= os.getenv("SENDER_PASSWORD")
 CC_EMAILS      = ["shivani.n@getnitro.co"]
 
-DASHBOARD_URL  = "https://z.nitrocommerce.ai/login"
+DASHBOARD_URL  = os.getenv("DASHBOARD_URL")
 Q_COMM_NAME    = "Blinkit"
 
-BASE_PATH               = r"C:\Users\User1\Desktop\autmation codes\availability\AVAIL"
-BRAND_NAME_MAPPING_PATH = r"C:\Users\User1\Desktop\autmation codes\test.xlsx"
+BASE_PATH               = os.getenv("BASE_PATH")
+BRAND_NAME_MAPPING_PATH = os.getenv("BRAND_NAME_MAPPING_PATH")
 os.makedirs(BASE_PATH, exist_ok=True)
 
 IMAGE_PATHS = {
