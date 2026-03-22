@@ -6,3 +6,4 @@ python-dotenv
 ipykernel
 groq
 openpyxl
+clickhouse-driver

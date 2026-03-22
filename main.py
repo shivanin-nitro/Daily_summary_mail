@@ -12,7 +12,11 @@ from email.mime.application import MIMEApplication
 from email.mime.image import MIMEImage
 
 from groq import Groq
-from src.bastion_connection import open_bastion_connection,execute_query_to_dataframe,close_bastion_connection
+from src.bastion_connection import (
+    open_clickhouse_connection,
+    execute_clickhouse_query,
+    close_clickhouse_connection
+)
 from src.logging_config import setup_logging,get_logger
 from dotenv import load_dotenv
 import os
@@ -61,9 +65,9 @@ if __name__ == "__main__":
         os.makedirs(RAW_SOV_PATH, exist_ok=True)
         logger.info(f"Created directories: {AVAIL_PATH}, {SOV_PATH}, {RAW_AVAIL_PATH}, {RAW_SOV_PATH}")
         
-        logger.info("Establishing Bastion connection...")
-        open_bastion_connection()
-        logger.info("✅  Bastion connection established")
+        logger.info("Establishing ClickHouse connection...")
+        open_clickhouse_connection()
+        logger.info("✅  ClickHouse connection established")
         
         logger.info("Generating date parameters...")
         today, yesterday, avail_target_s, avail_comp_s, avail_comp_e, sov_target_s, sov_target_e, sov_comp_s, sov_comp_e, avail_base_str, avail_delta_str, sov_base_str, sov_delta_str = generate_date()
@@ -87,7 +91,7 @@ if __name__ == "__main__":
             sov_xlsx   = os.path.join(SOV_PATH, f"{brand}_SOV_Analysis.xlsx")
 
             logger.info("  📥  Fetching availability data...")
-            success, df_a, message = execute_query_to_dataframe(get_avail_query(brand, comps, yesterday, today))
+            success, df_a, message = execute_clickhouse_query(get_avail_query(brand, comps, yesterday, today))
 
             if success:   
                 df_a.to_csv(f"{RAW_AVAIL_PATH}/availability_{brand}_{yesterday}.csv", index=False)
@@ -100,7 +104,7 @@ if __name__ == "__main__":
             logger.info(f"  ✅  Availability data fetched: {len(df_a)} rows")
 
             logger.info("  📥  Fetching SOV data...")
-            success, df_s, message = execute_query_to_dataframe(get_sov_query(brand, yesterday, today))
+            success, df_s, message = execute_clickhouse_query(get_sov_query(brand, yesterday, today))
 
             if success:
                 df_s.to_csv(f"{RAW_SOV_PATH}/sov_{brand}_{yesterday}.csv", index=False)
@@ -120,7 +124,7 @@ if __name__ == "__main__":
 
             # ── Load SOV first so brand_ad_sov is available for avail insights ───
             logger.info("  🔄  Processing SOV...")
-            df_s.columns = df_s.columns.str.strip().str.lower()
+            df_s.columns = df_s.columns.astype(str).str.strip().str.lower()
 
             sov_html = generate_sov_html_table(df_s, brand, comps, sov_target_s, sov_target_e, sov_comp_s, sov_comp_e)
             logger.debug("  ✅  SOV HTML table generated")
@@ -141,7 +145,7 @@ if __name__ == "__main__":
             logger.info(f"  💾  Saved: {sov_xlsx}")
 
             logger.info("  🔄  Processing availability...")
-            df_a.columns = df_a.columns.str.strip().str.lower()
+            df_a.columns = df_a.columns.astype(str).str.strip().str.lower()
             df_a["is_avail"]    = (df_a["inventory"] > 0).astype(float)
             df_a["report_date"] = pd.to_datetime(df_a["report_date"]).dt.date
 
@@ -236,6 +240,6 @@ if __name__ == "__main__":
         logger.critical(f"❌  Pipeline failed with critical error: {e}", exc_info=True)
         raise
     finally:
-        logger.info("Closing Bastion connection...")
-        close_bastion_connection()
-        logger.info("✅  Bastion connection closed")
+        logger.info("Closing ClickHouse connection...")
+        close_clickhouse_connection()
+        logger.info("✅  ClickHouse connection closed")
