@@ -53,7 +53,11 @@ AVAIL_PATH = os.path.join(BASE_PATH, "data", "availability")
 SOV_PATH = os.path.join(BASE_PATH, "data", "sov")
 
 
-if __name__ == "__main__":
+def run_pipeline():
+    """
+    Main pipeline function that fetches data, processes it, and sends email summaries.
+    This function is called directly and can be used by cron jobs.
+    """
     logger.info("=" * 60)
     logger.info("🚀  Starting Daily Summary Mail Pipeline")
     logger.info("=" * 60)
@@ -243,3 +247,7 @@ if __name__ == "__main__":
         logger.info("Closing ClickHouse connection...")
         close_clickhouse_connection()
         logger.info("✅  ClickHouse connection closed")
+
+
+if __name__ == "__main__":
+    run_pipeline()
